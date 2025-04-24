@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>{{ frappe.form_dict.title or "Color Box" }}</title>
+		<style>
+			body {
+				font-family: Arial, sans-serif;
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				align-items: center;
+				height: 100vh;
+				margin: 0;
+				background-color: #f5f5f5;
+			}
+			.color-box {
+				width: 350px;
+				height: 250px;
+				border-radius: 8px;
+				box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+				margin-bottom: 20px;
+			}
+			.description {
+				color: #666;
+				font-size: 14px;
+				text-align: center;
+				max-width: 350px;
+			}
+		</style>
+	</head>
+	<body>
+		<div
+			class="color-box"
+			style="background-color: {{ frappe.form_dict.color or 'black' }};"
+		></div>
+		<p class="description">{{ frappe.form_dict.description or "" }}</p>
+	</body>
+</html>
