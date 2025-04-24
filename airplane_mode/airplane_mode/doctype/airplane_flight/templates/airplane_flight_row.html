@@ -1,0 +1,21 @@
+<div class="card mb-3">
+	<div class="card-body">
+		<div class="row">
+			<div class="col-md-9">
+				<h5 class="card-title">
+					{{ doc.fetch_airline_name() or "Airline" }}: {{ doc.source_airport_code }} → {{
+					doc.destination_airport_code }}
+				</h5>
+				<p class="card-text">
+					Date: {{ doc.date_of_departure.strftime('%d %b %Y') if doc.date_of_departure
+					else 'N/A' }} | Time: {{ doc.time_of_departure or 'N/A' }} | Duration: {{
+					doc.duration or 'N/A' }}
+				</p>
+			</div>
+			<div class="col-md-3 d-flex align-items-center justify-content-end">
+				<a href="{{ doc.route }}" class="btn btn-primary">View Flight</a>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- this is a sample default list template -->

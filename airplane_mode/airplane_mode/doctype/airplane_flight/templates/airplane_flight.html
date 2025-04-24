@@ -1,0 +1,68 @@
+{% extends "templates/web.html" %} {% block page_content %}
+<div class="row">
+	<div class="col-md-8 mx-auto">
+		<div class="card">
+			<div class="card-body">
+				<h2 class="card-title">{{ title }}</h2>
+				<h4 class="card-subtitle mb-3 text-muted">{{ doc.fetch_airline_name() }}</h4>
+
+				<div class="flight-details my-4">
+					<div class="row">
+						<div class="col-md-4 text-center">
+							<div class="h3">{{ doc.source_airport_code }}</div>
+							<div>{{ doc.source_airport }}</div>
+						</div>
+						<div class="col-md-4 text-center">
+							<div class="flight-arrow">→</div>
+							<div class="flight-duration">{{ doc.duration }}</div>
+						</div>
+						<div class="col-md-4 text-center">
+							<div class="h3">{{ doc.destination_airport_code }}</div>
+							<div>{{ doc.destination_airport }}</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="flight-schedule mb-4">
+					<div class="row">
+						<div class="col-md-6">
+							<p>
+								<strong>Date of Departure:</strong> {{
+								doc.date_of_departure.strftime('%d %b %Y') if doc.date_of_departure
+								else 'N/A' }}
+							</p>
+						</div>
+						<div class="col-md-6">
+							<p>
+								<strong>Time of Departure:</strong> {{ doc.time_of_departure or
+								'N/A' }}
+							</p>
+						</div>
+					</div>
+				</div>
+
+				<div class="text-center my-4">
+					<a
+						href="/book-flight-ticket/new?flight={{ doc.name }}"
+						class="btn btn-primary btn-lg"
+						>Book Now</a
+					>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<style>
+	.flight-arrow {
+		font-size: 2rem;
+		margin: 10px 0;
+	}
+	.flight-duration {
+		font-size: 0.9rem;
+		color: #6c757d;
+	}
+</style>
+{% endblock %}
+
+<!-- this is a sample default web page template -->
