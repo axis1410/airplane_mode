@@ -1,0 +1,12 @@
+{
+  "venv": "env",
+  "venvPath": "../../env/",
+  "reportMissingImports": true,
+  "typeCheckingMode": "off",
+  "exclude": ["**/node_modules", "**/__pycache__", "**/.*", "**/migrations", "site-packages"],
+  "ignore": ["*.js", "*.html", "*.css", "*.json"],
+  "reportUnknownMemberAccess": false,
+  "reportAttributeAccessIssue": false,
+  "reportUnknownArgumentType": "none",
+  "reportUnknownVariableType": "none"
+}
