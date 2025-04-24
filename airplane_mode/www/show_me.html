@@ -3,11 +3,12 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Color Display</title>
+		<title>{{ title }}</title>
 		<style>
 			body {
 				font-family: Arial, sans-serif;
 				display: flex;
+				flex-direction: column;
 				justify-content: center;
 				align-items: center;
 				height: 100vh;
@@ -19,10 +20,18 @@
 				height: 250px;
 				border-radius: 8px;
 				box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+				margin-bottom: 20px;
+			}
+			.description {
+				color: #666;
+				font-size: 14px;
+				text-align: center;
+				max-width: 350px;
 			}
 		</style>
 	</head>
 	<body>
 		<div class="color-box" style="background-color: {{ color }};"></div>
+		<p class="description">{{ description }}</p>
 	</body>
 </html>
