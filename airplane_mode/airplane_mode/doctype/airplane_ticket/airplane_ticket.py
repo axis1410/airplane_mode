@@ -18,6 +18,9 @@ class AirplaneTicket(Document):
 		self.remove_duplicate_add_ons()
 		self.calculate_total_amount()
 
+	def before_insert(self):
+		self.validate_flight_seats()
+
 	def calculate_total_amount(self):
 		total = self.flight_price or 0
 		for add_on in self.add_ons:
@@ -42,3 +45,20 @@ class AirplaneTicket(Document):
 	def assign_seat(self):
 		if not self.seat:
 			self.seat = f"{random.randint(1, 100)}{random.choice(['A', 'B', 'C', 'D'])}"
+
+	def validate_flight_seats(self):
+		flight = self.flight
+		airplane = frappe.db.get_value("Airplane Flight", flight, "airplane")
+		capacity = frappe.db.get_value("Airplane", airplane, "capacity")
+		total_tickets_against_flight = frappe.db.count(
+			"Airplane Ticket",
+			filters={
+				"flight": flight,
+				"docstatus": ["!=", 2],
+			},
+		)
+
+		if total_tickets_against_flight > capacity:
+			frappe.throw(
+				f"Cannot book ticket. Flight {flight} has reached its capacity of {capacity} passengers."
+			)

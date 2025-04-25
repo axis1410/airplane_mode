@@ -8,7 +8,9 @@
  "field_order": [
   "founding_year",
   "customer_care_number",
-  "headquarters"
+  "column_break_sulq",
+  "headquarters",
+  "website"
  ],
  "fields": [
   {
@@ -30,6 +32,16 @@
    "in_list_view": 1,
    "label": "Headquarters",
    "reqd": 1
+  },
+  {
+   "fieldname": "website",
+   "fieldtype": "Data",
+   "label": "Website",
+   "options": "URL"
+  },
+  {
+   "fieldname": "column_break_sulq",
+   "fieldtype": "Column Break"
   }
  ],
  "grid_page_length": 50,
@@ -40,7 +52,7 @@
    "link_fieldname": "airline"
   }
  ],
- "modified": "2025-04-24 14:02:35.688335",
+ "modified": "2025-04-25 12:52:12.137478",
  "modified_by": "Administrator",
  "module": "Airplane Mode",
  "name": "Airline",
