@@ -2,24 +2,40 @@
   "actions": [],
   "allow_rename": 1,
   "autoname": "prompt",
-  "creation": "2025-04-24 14:10:54.495549",
+  "creation": "2025-04-24 13:55:20.611093",
   "doctype": "DocType",
   "engine": "InnoDB",
-  "field_order": ["description"],
+  "field_order": ["code", "city", "country"],
   "fields": [
     {
-      "fieldname": "description",
+      "fieldname": "code",
       "fieldtype": "Data",
-      "label": "Description"
+      "in_list_view": 1,
+      "label": "Code",
+      "reqd": 1
+    },
+    {
+      "fieldname": "city",
+      "fieldtype": "Data",
+      "in_list_view": 1,
+      "label": "City",
+      "reqd": 1
+    },
+    {
+      "fieldname": "country",
+      "fieldtype": "Data",
+      "in_list_view": 1,
+      "label": "Country",
+      "reqd": 1
     }
   ],
   "grid_page_length": 50,
   "index_web_pages_for_search": 1,
   "links": [],
-  "modified": "2025-04-24 14:11:09.066086",
+  "modified": "2025-04-24 13:55:41.335854",
   "modified_by": "Administrator",
   "module": "Airplane Mode",
-  "name": "Airplane Ticket Add-on Type",
+  "name": "Airport",
   "naming_rule": "Set by user",
   "owner": "Administrator",
   "permissions": [
@@ -37,17 +53,18 @@
     },
     {
       "role": "Fleet Manager",
-      "create": 1,
+      "create": 0,
       "read": 1,
-      "write": 1,
-      "delete": 1
+      "write": 0,
+      "delete": 0
     },
     {
       "role": "Travel Agent",
       "create": 0,
       "read": 1,
       "write": 0,
-      "delete": 0
+      "delete": 0,
+      "if_owner": 1
     },
     {
       "role": "Airport Authority Personnel",
@@ -58,9 +75,9 @@
     },
     {
       "role": "Flight Crew Member",
-      "create": 1,
+      "create": 0,
       "read": 1,
-      "write": 1,
+      "write": 0,
       "delete": 0
     }
   ],
