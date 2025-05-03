@@ -10,6 +10,7 @@ from frappe.model.document import Document
 class AirplaneTicket(Document):
 	def before_save(self):
 		self.assign_seat()
+		self.assign_gate()
 
 	def on_submit(self):
 		self.validate_submit()
@@ -45,6 +46,10 @@ class AirplaneTicket(Document):
 	def assign_seat(self):
 		if not self.seat:
 			self.seat = f"{random.randint(1, 100)}{random.choice(['A', 'B', 'C', 'D'])}"
+
+	def assign_gate(self):
+		if not self.gate:
+			self.gate = f"{random.randint(1, 100)}{random.choice(['A', 'B', 'C', 'D', 'E'])}"
 
 	def validate_flight_seats(self):
 		flight = self.flight

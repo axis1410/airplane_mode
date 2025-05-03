@@ -26,7 +26,33 @@ frappe.ui.form.on("Airplane Ticket", {
 					});
 					seat_dialog.show();
 				},
-				__("Actions")
+				__("Actions"),
+			);
+		}
+		if (!frm.doc.gate) {
+			frm.add_custom_button(
+				__("Assign Gate"),
+				function () {
+					let gate_dialog = new frappe.ui.Dialog({
+						title: "Enter Gate Number",
+						fields: [
+							{
+								label: "Gate Number",
+								fieldname: "gate",
+								fieldtype: "Data",
+								reqd: 1,
+							},
+						],
+						primary_action_label: "Assign Gate",
+						primary_action(values) {
+							frm.set_value("gate", values.gate);
+							gate_dialog.hide();
+							frm.save();
+						},
+					});
+					gate_dialog.show();
+				},
+				__("Actions"),
 			);
 		}
 	},
